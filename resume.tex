@@ -9,10 +9,13 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{geometry}
+\usepackage{enumitem}
 \usepackage{pifont}
-% \usepackage{multicol}
+\usepackage{multicol}
 
-\newgeometry{top=1em, bottom=2em, left=2em, right=2em}
+\newgeometry{top=1.5em, bottom=2em, left=2.5em, right=2.5em}
+
+\definecolor{dark-gray}{gray}{0.3}
 
 % Function to add formatting to the title/header 
 \renewcommand{\maketitle}{
@@ -23,8 +26,8 @@
     \medskip
     \rule[1.0\baselineskip]{\textwidth}{0.4pt}\\
     \vspace{-1.0em}
-    Tokyo, Japan \ding{118}
-    \raisebox{0.3ex}{\footnotesize+}81 070\,$\,4225\,$\,1827 \ding{118}
+    Tokyo, Japan \ding{60}
+    \raisebox{0.3ex}{\footnotesize+}81 070\,$\,4225\,$\,1827 \ding{60}
     \href{mailto:jilada.eccleston@gmail.com}{
       \textcolor{blue}{
         jilada.eccleston@gmail.com
@@ -33,6 +36,30 @@
   \end{center}
 }
 
+\newenvironment{aSection}[1]{
+  \begin{center}
+    \textbf{\uppercase{#1}}\\
+    \vspace{0.5em}
+    \hrule
+    \vspace{-0.5em}
+  \end{center}
+}
+
+\newenvironment{bSection}[4]{
+  \textbf{#1}
+  \smallskip\\
+  {\color{dark-gray}{#2}}\\
+  {#3}
+  {#4}
+}
+
+\newenvironment{cSection}[2]{
+  \textbf{#1}
+  \smallskip
+  {#2}
+}
+
+
 % Begin the document
 \begin{document}
 
@@ -40,70 +67,124 @@
 \author{\textsc{Jilada Eccleston}}
 \title{Resume}
 
-% Function call for creating te title
+% Function call for creating the title
 \maketitle
 
-\section{profile}
-  People describe me as diligent, self-aware and a fast independent learner who strives to deliver the best results. I found myself interested in
-  electronics, mathematics as well as languages, while pursuing passions in art and languages in my spare time. I am interested in
-  opportunities in the embedded software space that solve multi-disciplinary problems.
+\begin{aSection}{profile}
+  Passionate software engineer with 2+ years experience developing state-of-the-art autonomous vehicle software. People describe me as diligent, attentive and an independent learner with a knack for leadership. I am eager to expand my horizons in the fields of open source software, product management, embedded software systems, and good software development practices. 
+\end{aSection}
 
-\section{work experience}
-  Software Engineer\\
-  Tier IV (Aug 2020 -- Present)\\
-  \begin{itemize}
-    \item Contributing to AutowareAuto: an open-source autonomous vehicle software system in ROS2
-    \item ROS2 Technical Steering Committee representative for Tier IV (August 2020 -- February 2021)
-    \item The Autoware Foundation Technical Steering Committee representative for Tier IV (February 2021 -- Present)
-  \end{itemize}
-  Robotics Engineer\\
-  Ascent Robotics {Mar 2019 -- Jul 2020}\\
-  \begin{itemize}
-    \item Optimized the multi-image detection (Nvidia TensorRT) pipeline by up to 50\% for batch image processing
-    \item Involved in developing the mapping and localization pipeline using Google Cartographer and implementing an NDT-based (Normal Distribution Transforms) localization package for 3D point cloud
-    \item Designed and developed a ROS-based safety monitoring system for the physical car platform which supported engineers during field testing the autonomous driving mode
-  \end{itemize}
-  Software Engineering Intern\\
-  Orion Health (Dec 2017 -- Feb 2018)\\
-  \begin{itemize}
-    \item Worked on a standalone applications for the Rhapsody Integration Engine in Java
-    \item Developed an understanding of software development practices; SCRUM, Agile and continuous integration
-  \end{itemize}
+% Begin challenging multicol experience
+\setlength{\columnsep}{2em}
+\begin{multicols*}{2}
+  \begin{aSection}{work experience}
+    \begin{flushleft}
+      \begin{bSection}
+        {Software Engineer}
+        {Tier IV (Aug 2020 -- Present)}{}
+        {\begin{itemize}[label=\ding{118}]
+          \itemsep0em
+          \vspace{-0.5em}
+          \item Contributing to AutowareAuto: an open-source autonomous vehicle software system in ROS2
+          \item Actively involved in critical software development process design for merging large (60,000+ lines) repositories
+          \item ROS2 Technical Steering Committee representative for Tier IV (August 2020 -- February 2021)
+          \item The Autoware Foundation Technical Steering Committee representative for Tier IV (February 2021 -- Present)
+        \end{itemize}}
+      \end{bSection}
 
-\section{education}
-  Bachelor of Engineering (First Class Honors) -- Computer Systems Engineering (GPA 8.6/9.0)\\
-  The University of Auckland -- 2015 -- 2018\\
-  Final year research project on Localization and Mapping for Firefighting Applications - won best in category (Intelligent Systems and Industrial Informatics)\\
-  \begin{itemize}
-    \item Senior Scholar Award -- Achieved the highest overall grades in my degree programme
-    \item First in Course Award -- three in embedded system design courses and one in engineering electro-magnetic
-    \item Proficient in modeling software; MATLAB, having used it in multiple different settings and projects. Experience in C++, C and Java for cross-platform development
-    \item Experience in C and VHDL for FPGA and SoC applications. EDA tools such as Quartus, ModelSIM, and QSYS for hardware verification and synthesis
-    \item Experience in RTOS; FreeRTOS designing hard real-time systems on embedded Linux chips
-    \item Multi-sensor (MEMs IMU, LiDAR, Ultrasonic) networking and configuration using ROS
-    \item Circuit design tools; LTSpice and Altium Designer usedfor verification, validation and PCB design
-  \end{itemize}
+      \begin{bSection}
+        {Robotics Engineer}
+        {Ascent Robotics (Mar 2019 -- Jul 2020)}{}
+        {\begin{itemize}[label=\ding{118}]
+          \itemsep0em
+          \vspace{-0.5em}
+          \item Optimized the multi-image detection (Nvidia TensorRT) pipeline by up to 50\% for batch image processing
+          \item Developed a mapping and localization pipeline using Google Cartographer and implemented an NDT-based (Normal Distribution Transforms) localization package
+          \item Designed and developed a ROS-based safety monitoring system for the physical car platform which supported engineers during field testing the autonomous driving mode
+        \end{itemize}}
+      \end{bSection}
 
-\section{skills}
-  Time Management\\
-  \begin{itemize}
-    \item IEEE Student Branch (2017--2018) -- Managed a team of 18; organized events, managed funds and liaises with industry professionals. Foster the expansion and awareness of the IEEE organisation within the STEM faculties and beyond
-  \end{itemize}
-  Effective Team Leadership\\
-  \begin{itemize}
-    \item Experience in leadership roles both within an academic environment and outside. Effectively communication has led groups to winning projects and achieving success at events. Great interpersonal and ability to effectively communicate via writing
-  \end{itemize}
-  Languages\\
-  \begin{itemize}
-    \item Mandarin -- intermediate communication skills, ability to read, write and carry conversations
-    \item Japanese -- basic communication skills, ability to read, write and carry conversations
-    \item Thai -- excellent understand of spoken Thai with limited speaking proficiency
-  \end{itemize}
+      \begin{bSection}
+        {Software Engineering Intern}
+        {Orion Health (Dec 2017 -- Feb 2018)}{}
+        {\begin{itemize}[label=\ding{118}]
+          \itemsep0em
+          \vspace{-0.5em}
+          \item Worked on a standalone applications for the Rhapsody Integration Engine in Java
+          \item Developed an understanding of software development practices; SCRUM, Agile and continuous integration
+        \end{itemize}}
+      \end{bSection}
+    \end{flushleft}
+  \end{aSection}
 
-\section{projects}
-  Line-following Robot — 2017\\
-  PSoC 5LP an ARM-based micro controller used for detecting patches of light projected onto the driving surface. Bluetooth communication, LCD display were used to communicate direction and select modes on robot’s custom designed PCB.\\
-  DDD Mode Pacemaker on Chip — 2017\\
-  Designed, tested and verified for correctness in FSM design for concurrent safety-critical reactive systems, using SCCharts, NIOS II and the DE2-115 FPGA board. Interface the FSM to the inputs and outputs of the system, including a virtual heart through UART simulating one of three heart diseases: Sino-Atrial Node failure, Atrial-Ventricular Node failure and Atrial-Ventricular Conduction Blocking.\\
+  \begin{aSection}{projects}
+    \begin{flushleft}
+      \textbf{Line-following Robot -- 2017}
+      \medskip\\
+      PSoC 5LP an ARM-based micro controller used for detecting patches of light projected onto the driving surface. Bluetooth communication, LCD display were used to communicate direction and select modes on robot’s custom designed PCB.
+      \medskip\\
+      \textbf{DDD Mode Pacemaker on Chip -- 2017}
+      \medskip\\
+      Designed, tested and verified for correctness in FSM design for concurrent safety-critical reactive systems, using SCCharts, NIOS II and the DE2-115 FPGA board. Interface the FSM to the inputs and outputs of the system, including a virtual heart through UART simulating one of three heart diseases: Sino-Atrial Node failure, Atrial-Ventricular Node failure and Atrial-Ventricular Conduction Blocking.\\
+    \end{flushleft}
+  \end{aSection}
+
+  \columnbreak
+  
+  \begin{aSection}{education}
+    \begin{flushleft}
+      \begin{bSection}
+        {Bachelor of Engineering (First Class Honors) -- Computer Systems Engineering (GPA 8.6/9.0)}
+        {The University of Auckland -- 2015 -- 2018}
+        \smallskip
+        {Final year research project on Localization and Mapping for Firefighting Applications - won best in category (Intelligent Systems and Industrial Informatics)\\}
+        {\begin{itemize}[label=\ding{118}]
+          \itemsep0em
+          \vspace{-0.5em}
+          \item Senior Scholar Award -- Achieved the highest overall grades in my degree program
+          \item First in Course Award -- three in embedded system design courses and one in engineering electro-magnetic
+          \item Proficient in modeling software; MATLAB, having used it in multiple different settings and projects. Experience in C++, C and Java for cross-platform development
+          \item Experience in C and VHDL for FPGA and SoC applications. EDA tools such as Quartus, ModelSIM, and QSYS for hardware verification and synthesis
+          \item Experience in RTOS; FreeRTOS designing hard real-time systems on embedded Linux chips
+          \item Multi-sensor (MEMs IMU, LiDAR, Ultrasonic) networking and configuration using ROS
+          \item Circuit design tools; LTSpice and Altium Designer used for verification, validation and PCB design
+        \end{itemize}}
+      \end{bSection}
+    \end{flushleft}
+  \end{aSection}
+
+  \begin{aSection}{skills}
+    \begin{flushleft}
+      \begin{cSection}
+        {Time Management}
+        {\begin{itemize}[label=\ding{118}]
+          \itemsep0em
+          \vspace{-0.75em}
+          \item IEEE Student Branch (2017--2018) -- Managed a team of 18; organized events, managed funds and liaises with industry professionals. Foster the expansion and awareness of the IEEE organisation within the STEM faculties and beyond
+        \end{itemize}}
+      \end{cSection}
+
+      \begin{cSection}
+        {Effective Team Leadership}
+        {\begin{itemize}[label=\ding{118}]
+          \itemsep0em
+          \vspace{-0.75em}
+          \item Experience in leadership roles both within an academic environment and outside. Effective communication has led groups to winning projects and achieving success at events. Great interpersonal and ability to effectively communicate via writing
+        \end{itemize}}
+      \end{cSection}
+
+      \begin{cSection}
+        {Languages}
+        {\begin{itemize}[label=\ding{118}]
+          \itemsep0em
+          \vspace{-0.75em}
+          \item Mandarin -- intermediate communication skills, ability to read, write and carry conversations
+          \item Japanese -- basic communication skills, ability to read, write and carry conversations
+          \item Thai -- excellent understand of spoken Thai with limited speaking proficiency
+        \end{itemize}}
+      \end{cSection}
+    \end{flushleft}
+  \end{aSection}
+\end{multicols*}
 
 \end{document}
