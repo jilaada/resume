@@ -1,0 +1,203 @@
+% Document class:article
+% Using 10pt font and A4 sized paper
+\documentclass[10pt, a4paper]{article}
+
+% Set packages used in the tex document
+\usepackage{fullpage}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{multicol}
+\usepackage{fontspec}
+
+\newgeometry{top=1.5em, bottom=2em, left=2.5em, right=2.5em}
+
+\definecolor{dark-gray}{gray}{0.3}
+
+% Function to add formatting to the title/header 
+\renewcommand{\maketitle}{
+  \begin{center}
+    \rule{\textwidth}{0.4pt}\\
+    \medskip
+    {\Huge\theauthor}\\
+    \medskip
+    \rule[1.0\baselineskip]{\textwidth}{0.4pt}\\
+    \vspace{-1.0em}
+    Tokyo, Japan \ding{60}
+    \raisebox{0.3ex}{\footnotesize+}81 070\,$\,4225\,$\,1827 \ding{60}
+    \href{mailto:jilada.eccleston@gmail.com}{
+      \textcolor{blue}{
+        jilada.eccleston@gmail.com
+      }
+    }
+  \end{center}
+}
+
+\newenvironment{aSection}[1]{
+  \begin{center}
+    \textbf{\uppercase{#1}}\\
+    \vspace{0.5em}
+    \hrule
+    \vspace{-0.5em}
+  \end{center}
+}
+
+\newenvironment{bSection}[4]{
+  \textbf{#1}
+  \smallskip\\
+  {\color{dark-gray}{#2}}\\
+  {#3}
+  {#4}
+}
+
+\newenvironment{cSection}[2]{
+  \textbf{#1}
+  \smallskip
+  {#2}
+}
+
+% Begin the document
+\begin{document}
+
+% Preamble
+\author{\textsc{Jilada Eccleston}}
+\title{Resume}
+
+% Function call for creating the title
+\maketitle
+
+\begin{aSection}{profile}
+  Passionate software engineer with 2+ years experience developing state-of-the-art autonomous vehicle software. People describe me as diligent, attentive and an independent learner with a knack for leadership. I am eager to expand my horizons in the fields of open source software, product management, embedded software systems, and good software development practices. 
+\end{aSection}
+
+% Begin challenging multicol experience
+\setlength{\columnsep}{2em}
+\begin{multicols*}{2}
+  \noindent\begin{minipage}[t][.2\textheight][t]{\columnwidth}
+    \begin{aSection}{work experience}
+      \begin{flushleft}
+        \begin{bSection}
+          {Software Engineer}
+          {Tier IV (Aug 2020 -- Present)}{}
+          {\begin{itemize}[label=\ding{118}]
+            \itemsep0em
+            \vspace{-0.5em}
+            \item Contributing to AutowareAuto: an open-source autonomous vehicle software system in ROS2
+            \item Actively involved in critical software development process design for merging large (60,000+ lines) repositories
+            \item \textbf{ROS2 Technical Steering Committee} representative for Tier IV (Aug 2020-- Feb 2021)
+            \item \textbf{The Autoware Foundation Technical Steering Committee} representative for Tier IV (Feb 2021 -- Present)
+          \end{itemize}}
+        \end{bSection}
+
+        \begin{bSection}
+          {Robotics Engineer}
+          {Ascent Robotics (Mar 2019 -- Jul 2020)}{}
+          {\begin{itemize}[label=\ding{118}]
+            \itemsep0em
+            \vspace{-0.5em}
+            \item Optimized the multi-image detection (Nvidia TensorRT) pipeline by up to 50\% for batch image processing
+            \item Developed a mapping and localization pipeline using Google Cartographer and implemented an NDT-based (Normal Distribution Transforms) localization package
+            \item Designed and developed a ROS-based safety monitoring system for the physical car platform which supported engineers during field testing the autonomous driving mode
+          \end{itemize}}
+        \end{bSection}
+
+        \begin{bSection}
+          {Software Engineering Intern}
+          {Orion Health (Dec 2017 -- Feb 2018)}{}
+          {\begin{itemize}[label=\ding{118}]
+            \itemsep0em
+            \vspace{-0.5em}
+            \item Worked on a standalone applications for the Rhapsody Integration Engine in Java
+            \item Developed an understanding of software development practices; SCRUM, Agile and continuous integration
+          \end{itemize}}
+        \end{bSection}
+      \end{flushleft}
+    \end{aSection}
+
+    \begin{aSection}{projects}
+      \begin{flushleft}
+        \textbf{Line-following Robot -- 2017}
+        \smallskip\\
+        PSoC 5LP an ARM-based micro controller used for detecting patches of light projected onto the driving surface. Bluetooth communication, LCD display were used to communicate direction and select modes on robot’s custom designed PCB.
+        \medskip\\
+        \textbf{DDD Mode Pacemaker on Chip -- 2017}
+        \smallskip\\
+        Designed, tested and verified for correctness in FSM design for concurrent safety-critical reactive systems, using SCCharts, NIOS II and the DE2-115 FPGA board. Interface the FSM to the inputs and outputs of the system, including a virtual heart through UART simulating one of three heart diseases: Sino-Atrial Node failure, Atrial-Ventricular Node failure and Atrial-Ventricular Conduction Blocking.
+      \end{flushleft}
+    \end{aSection}
+  \end{minipage}
+
+  \columnbreak
+
+  \noindent\begin{minipage}[t][.2\textheight][t]{\columnwidth}
+    \begin{aSection}{education}
+      \begin{flushleft}
+        \begin{bSection}
+          {Bachelor of Engineering (First Class Honors) -- Computer Systems Engineering (GPA 8.6/9.0)}
+          {The University of Auckland -- 2015 -- 2018}
+          \smallskip
+          {Final year research project on Localization and Mapping for Firefighting Applications - won best in category (Intelligent Systems and Industrial Informatics)\\}
+          {\begin{itemize}[label=\ding{118}]
+            \itemsep0em
+            \vspace{-0.5em}
+            \item \textbf{Senior Scholar Award} -- Achieved the highest overall grades in my degree program
+            \item \textbf{First in Course Award} -- three in embedded system design courses and one in engineering electro-magnetic
+            \item Proficient in modeling software; MATLAB, having used it in multiple different settings and projects. Experience in C++, C and Java for cross-platform development
+            \item Experience in C and VHDL for FPGA and SoC applications. EDA tools such as Quartus, ModelSIM, and QSYS for hardware verification and synthesis
+            \item Experience in RTOS; FreeRTOS designing hard real-time systems on embedded Linux chips
+            \item Multi-sensor (MEMs IMU, LiDAR, Ultrasonic) networking and configuration using ROS
+            \item Circuit design tools; LTSpice and Altium Designer used for verification, validation and PCB design
+          \end{itemize}}
+        \end{bSection}
+      \end{flushleft}
+    \end{aSection}
+
+    \begin{aSection}{skills}
+      \begin{flushleft}
+        \begin{cSection}
+          {Project Management}
+          {\begin{itemize}[label=\ding{118}]
+            \itemsep0em
+            \vspace{-0.75em}
+            \item Spearheaded a project producing an effective synchronization process for multiple large software projects in coordination with senior leadership. Solved technical and streamlined logistical challenges.
+          \end{itemize}}
+        \end{cSection}
+
+        \begin{cSection}
+          {Communication}
+          {\begin{itemize}[label=\ding{118}]
+            \itemsep0em
+            \vspace{-0.75em}
+            \item Produced and presented constructive presentations to engineers and C-level executives at steering committee meetings. Collaborated with engineers from all around the world.
+          \end{itemize}}
+        \end{cSection}
+
+        \begin{cSection}
+          {Effective Leadership}
+          {\begin{itemize}[label=\ding{118}]
+            \itemsep0em
+            \vspace{-0.75em}
+            \item Successful management has led groups to winning projects and achieving success at events. Excellent interpersonal skills and ability to efficaciously communicate via writing.
+          \end{itemize}}
+        \end{cSection}
+
+        \begin{cSection}
+          {Languages}
+          {\begin{itemize}[label=\ding{118}]
+            \itemsep0em
+            \vspace{-0.75em}
+            \item Mandarin -- intermediate communication skills, ability to read, write and carry conversations
+            \item Japanese -- basic communication skills, ability to read, write and carry conversations
+            \item Thai -- excellent understand of spoken Thai with limited speaking proficiency
+          \end{itemize}}
+        \end{cSection}
+      \end{flushleft}
+    \end{aSection}
+  \end{minipage}
+\end{multicols*}
+
+\end{document}
